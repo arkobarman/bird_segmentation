@@ -1,1 +1,1 @@
-# bird_segmentation
++ run python main.py
