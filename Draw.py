@@ -14,13 +14,14 @@ def draw_histogram(pairs,  title="Relation between size and species", xlabel="Ca
     
     # Show the plot
     plt.show()
-def draw_histogram_with_text(pairs,  title="Relation between size and species", xlabel="Category_Id", ylabel="Bird size (pixel)"):
+def draw_histogram_with_text(pairs,name_map,  title="Relation between size and species", xlabel="Category_Id", ylabel="Bird size (pixel)"):
     # Create the histogram
     id, frequencies = list(pairs.keys()),list(pairs.values())
     print(id)
     plt.bar(id,frequencies, edgecolor='black')
     for id_number,average in pairs.items():
-        plt.text(id_number-0.5, int(average)+20, str(round(average,2)), fontsize=8, color='red') 
+        plt.text(id_number-0.5, int(average)+20, str(round(average,2)), fontsize=8, color='red')
+       # plt.text(id_number-0.5, int(average)-20, str(name_map[id_number]), fontsize=8, color='black')  
     # Add titles and labels
     plt.title(title)
     plt.xlabel(xlabel)
