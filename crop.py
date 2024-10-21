@@ -5,11 +5,11 @@ from PIL import Image
 import matplotlib.pyplot as plt
 from matplotlib.patches import PathPatch
 from matplotlib.path import Path
-def crop_bird(image_path,birds,mean_size):
+def crop_bird(image_path,birds,mean_size,folder='DATASET/outliers/'):
     # Reshape the flat list of vertices into pairs of (x, y)
     segmentation=birds.segmentation
-    foldername='DATASET/outliers/'+birds.aiclass
-    id=birds.image_id
+    foldername=folder+birds.aiclass
+    id=birds.id
 
     polygon_vertices = np.array(segmentation).reshape(-1, 2)
 
