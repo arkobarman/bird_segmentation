@@ -67,6 +67,7 @@ def restore_image_stuct(image_info):
     image_map={}
     for image in image_info:
         image_map[image['id']]=image
+    return image_map
 if __name__=='__main__':
     saiclass_map={}
     bird_annotion_list=[]
@@ -90,8 +91,13 @@ if __name__=='__main__':
         each_species.count_average()
         #print(each_species.bird_size_mean)
         if each_species.bird_sum>=50:
-            each_species.count_outliers_iqr
-            each_species.out_liers
+            print(each_species.aiclass)
+            each_species.count_outliers_iqr(1)
+            print(len(each_species.outliers))
+            for birds in each_species.outliers:
+                #print(birds.image_id)
+                image_to_crop=image_map[birds.image_id]["file_name"]
+                crop_bird(image_to_crop,birds,each_species.bird_size_mean)
         
 
     
