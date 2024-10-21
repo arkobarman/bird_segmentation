@@ -51,7 +51,10 @@ class species():
         if output:
             self.outliers=[self.bird_list[i] for i in self.outlier_indices]
         #   return  self.outliers
-        
+    def make_non_outliers(self):
+        outlier_set = set(self.outlier_indices)
+        self.non_outliers = [self.bird_list[i] for i in range(len(self.bird_list)) if i not in outlier_set]
+
 def get_class(annotation_data,attribute):
     index=0
     species_map={}
@@ -97,8 +100,13 @@ if __name__=='__main__':
             for birds in each_species.outliers:
                 #print(birds.image_id)
                 image_to_crop=image_map[birds.image_id]["file_name"]
-                crop_bird(image_to_crop,birds,each_species.bird_size_mean)
-        
+                #crop_bird(image_to_crop,birds,each_species.bird_size_mean)
+            each_species.make_non_outliers()
+            for i in range(10):
+                picked_normal=each_species.non_outliers[i].image_id
+                image_to_crop=image_map[picked_normal]["file_name"]
+                crop_bird(image_to_crop,each_species.non_outliers[i],each_species.bird_size_mean,'DATASET/normal/')
+
 
     
    
