@@ -2,4 +2,6 @@ CoCoTest.json
 Test.ipynb
 __pycache__
 .ipynb_checkpoints
-DATASET
+DATASET/
+result
+.DS_Store/

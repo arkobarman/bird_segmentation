@@ -23,7 +23,7 @@ def crop_bird(image_path,birds,mean_size,folder='DATASET/outliers/'):
 
     # Create a Path object for the polygon
     polygon_path = Path(polygon_vertices)
-
+ ##ycbcr
     # Generate a grid of points (x, y coordinates for each pixel)
     x, y = np.meshgrid(np.arange(image_np.shape[1]), np.arange(image_np.shape[0]))
     points = np.vstack((x.flatten(), y.flatten())).T
